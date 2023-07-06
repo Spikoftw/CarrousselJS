@@ -27,34 +27,42 @@ let textBanner = document.querySelector("#banner p")
 
 bannerImg.src = "./assets/images/slideshow/" + slides[0].image
 
+let nouvelElement = []
+
 for (i = 0; i < slides.length; i++) {
-	let nouvelElement = document.createElement("div")
-	nouvelElement.classList.add("dot")
-	dots.appendChild(nouvelElement)
+	nouvelElement[i] = document.createElement("div")
+	nouvelElement[i].classList.add("dot", "dots"+[i])
+	dots.appendChild(nouvelElement[i])
+	nouvelElement[0].classList.add("dot_selected")
 }
 
 let dotselected = document.querySelector(".dot")
 
 flechesGauche.addEventListener("click", () => {
-	console.log("J'ai cliqué sur la fleche de gauche")
 	if (index === 0) {
 		index = slides.length - 1
+		nouvelElement[index].classList.add("dot_selected")
+		nouvelElement[0].classList.remove("dot_selected")
 	}
 	else {
 		index--
+		nouvelElement[index].classList.add("dot_selected")
+		nouvelElement[index + 1].classList.remove("dot_selected")
 	}
-	dotselected.classList.add("dot_selected")
 	textBanner.innerHTML = slides[index].tagLine
 	bannerImg.src = "./assets/images/slideshow/" + slides[index].image
 })
 
 flecheDroite.addEventListener("click", () => {
-	console.log("J'ai cliqué sur la fleche de droite")
 	if (index < slides.length - 1) {
+		nouvelElement[index].classList.remove("dot_selected")
 		index++
+		nouvelElement[index].classList.add("dot_selected")
 	}
 	else {
+		nouvelElement[index].classList.remove("dot_selected")
 		index = 0
+		nouvelElement[index].classList.add("dot_selected")
 	}
 	textBanner.innerHTML = slides[index].tagLine
 	bannerImg.src = "./assets/images/slideshow/" + slides[index].image
