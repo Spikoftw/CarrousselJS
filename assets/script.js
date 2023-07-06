@@ -24,10 +24,9 @@ let bannerImg = document.querySelector(".banner-img")
 let index = 0
 let dots = document.querySelector(".dots")
 let textBanner = document.querySelector("#banner p")
+let nouvelElement = []
 
 bannerImg.src = "./assets/images/slideshow/" + slides[0].image
-
-let nouvelElement = []
 
 for (i = 0; i < slides.length; i++) {
 	nouvelElement[i] = document.createElement("div")
