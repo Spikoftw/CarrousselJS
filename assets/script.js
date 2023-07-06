@@ -36,18 +36,16 @@ for (i = 0; i < slides.length; i++) {
 	nouvelElement[0].classList.add("dot_selected")
 }
 
-let dotselected = document.querySelector(".dot")
-
 flechesGauche.addEventListener("click", () => {
 	if (index === 0) {
+		nouvelElement[0].classList.remove("dot_selected")
 		index = slides.length - 1
 		nouvelElement[index].classList.add("dot_selected")
-		nouvelElement[0].classList.remove("dot_selected")
 	}
 	else {
+		nouvelElement[index].classList.remove("dot_selected")
 		index--
 		nouvelElement[index].classList.add("dot_selected")
-		nouvelElement[index + 1].classList.remove("dot_selected")
 	}
 	textBanner.innerHTML = slides[index].tagLine
 	bannerImg.src = "./assets/images/slideshow/" + slides[index].image
