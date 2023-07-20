@@ -28,6 +28,7 @@ let textBanner = document.querySelector("#banner p");
 let nouvelElement = [];
 
 bannerImg.src = rootPath + slides[0].image;
+textBanner.innerHTML = slides[0].tagLine;
 
 for (i = 0; i < slides.length; i++) {
   nouvelElement[i] = document.createElement("div");
